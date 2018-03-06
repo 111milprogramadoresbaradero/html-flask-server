@@ -1,0 +1,6 @@
+FROM python:2
+COPY  ./requirements.txt /usr/local/app/requirements.txt
+RUN pip install -r /usr/local/app/requirements.txt 
+COPY ./ /usr/local/app/
+ENV PYTHONPATH=/usr/local/app
+CMD ["python", "usr/local/app/app.py"]
