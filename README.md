@@ -9,6 +9,6 @@
 	
 3. Crear contenedor:
 
-	`docker run --name curso111-server -p 9200:9200 curso111-flask-server`
+	`docker run --name curso111-server -p 9200:9200 -d curso111-flask-server`
 
 4. Acceder al servidor desde el browser en la URL http://localhost:9200
