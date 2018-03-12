@@ -1,5 +1,5 @@
 
-from flask import Flask, request, redirect, send_from_directory
+from flask import Flask, request, redirect, send_from_directory, jsonify
 import db
 
 # set the project root directory as the static folder, you can set others.
@@ -29,6 +29,10 @@ def send_form():
     db.insertPersona(firstname, lastname, username1, username2)
     return root()
 
+@app.route('/personas')
+def personas():
+    personas = db.listarPersonas()
+    return jsonify(personas)
 
 if __name__ == "__main__":
     db.init()
