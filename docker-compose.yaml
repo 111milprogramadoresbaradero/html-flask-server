@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  
+  curso111_db:
+    container_name: curso111_db
+    image: postgres:9.6
+    ports:
+      - 5432:5432
+
+  flask-curso111_app:
+    container_name: curso111_app
+    image: curso111-flask-server 
+    ports:
+      - 9200:9200
+    environment:
+      - DB_HOST=curso111_db
+      - WAIT_DB=10
+    depends_on:
+      - curso111_db
